@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.ANTONDrakon/duebuddy-invoices",
+  "description": "Read incoming invoices (PDF, photo, scan, XML, QR) and return structured data plus a file ready for accounting: DATEV EXTF, 1C, UBL, CSV, JSON. Electronic invoices in XML or QR are parsed by code and are free; scans cost 0.07 EUR per page.",
+  "version": "1.0.0",
+  "websiteUrl": "https://duebuddy.work/mcp-docs",
+  "repository": {
+    "url": "https://github.com/ANTONDrakon/duebuddy-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://duebuddy.work/mcp"
+    }
+  ]
+}
