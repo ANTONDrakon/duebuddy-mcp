@@ -38,6 +38,27 @@ Claude Desktop / Cursor / any MCP client:
 
 Then ask the assistant to call `parse_invoice` with your API key, a file URL and a country code.
 
+## Reading invoices by country
+
+Guides and field notes for the formats this server reads — useful if you are wiring your own
+pipeline and want to know what is actually inside the file:
+
+- **Germany** — [E-Rechnung auslesen](https://duebuddy.work/de/e-rechnung-auslesen) ·
+  [ZUGFeRD](https://duebuddy.work/de/e-rechnung-auslesen/zugferd) ·
+  [XRechnung](https://duebuddy.work/de/e-rechnung-auslesen/xrechnung) ·
+  [DATEV export](https://duebuddy.work/de/e-rechnung-auslesen/datev)
+- **Italy** — [Fattura elettronica XML](https://duebuddy.work/it/fattura-elettronica-xml) ·
+  [p7m](https://duebuddy.work/it/fattura-elettronica-xml/p7m)
+- **France** — [Lire une facture électronique](https://duebuddy.work/fr/lire-facture-electronique) ·
+  [Factur-X](https://duebuddy.work/fr/lire-facture-electronique/factur-x)
+- **Poland** — [Faktury z KSeF](https://duebuddy.work/pl/faktury-ksef)
+- **UAE** — [UAE e-invoicing](https://duebuddy.work/en/uae-e-invoicing)
+- **United States** — [Invoice data extraction](https://duebuddy.work/en/invoice-data-extraction)
+- **Russia** — [Загрузить документы в 1С](https://duebuddy.work/ru/1c-dokumenty)
+
+Reminders (the second half of the product) are documented at
+[payment reminders](https://duebuddy.work/en/payment-reminders).
+
 ## Pricing
 
 - Scanned pages: **0.07 EUR per page**
