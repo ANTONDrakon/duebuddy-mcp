@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "work.duebuddy/invoices",
-  "description": "Read supplier invoices (PDF, photo, XML e-invoices) via MCP and get structured data plus a DATEV/1C/CSV file.",
-  "version": "1.1.0",
+  "description": "Read supplier invoices (PDF, photo, XML) and return fields plus a DATEV/1C/CSV file.",
+  "version": "1.1.1",
   "websiteUrl": "https://duebuddy.work/mcp-docs",
   "repository": {
     "url": "https://github.com/ANTONDrakon/duebuddy-mcp",
@@ -12,7 +12,7 @@
     {
       "registryType": "pypi",
       "identifier": "duebuddy-mcp",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "runtimeHint": "uvx",
       "runtimeArguments": [
         {
