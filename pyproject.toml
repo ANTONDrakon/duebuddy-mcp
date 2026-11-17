@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "duebuddy-mcp"
+version = "1.1.0"
+description = "MCP server that reads incoming supplier invoices (PDF, photo, XML e-invoices) and returns structured data plus a file for 1C, DATEV or CSV"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "DueBuddy", email = "hello@duebuddy.work" }]
+keywords = [
+  "mcp", "model-context-protocol", "invoice", "invoices", "invoice-parsing",
+  "e-invoicing", "zugferd", "xrechnung", "factur-x", "fattura-pa", "peppol",
+  "ksef", "ubl", "ocr", "accounting", "datev", "1c", "bookkeeping",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Financial and Insurance Industry",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Office/Business :: Financial :: Accounting",
+]
+dependencies = [
+  "mcp>=1.2.0,<2",
+  "httpx>=0.27,<1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://duebuddy.work/mcp-docs"
+Documentation = "https://duebuddy.work/mcp-docs"
+Repository = "https://github.com/ANTONDrakon/duebuddy-mcp"
+Issues = "https://github.com/ANTONDrakon/duebuddy-mcp/issues"
+
+[project.scripts]
+duebuddy-mcp = "duebuddy_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["duebuddy_mcp"]
