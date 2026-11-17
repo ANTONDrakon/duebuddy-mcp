@@ -5,10 +5,10 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+COPY pyproject.toml README.md LICENSE ./
+COPY duebuddy_mcp ./duebuddy_mcp
 
-COPY server.py ./
+RUN pip install --no-cache-dir .
 
-# stdio-транспорт: сервер общается с MCP-клиентом через stdin/stdout.
-ENTRYPOINT ["python", "/app/server.py"]
+# stdio transport: the server talks to the MCP client over stdin/stdout.
+ENTRYPOINT ["duebuddy-mcp"]
