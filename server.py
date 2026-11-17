@@ -270,6 +270,36 @@ def topup_link(amount_eur: float = 8.0) -> dict[str, Any]:
     }
 
 
+@mcp.prompt(
+    name="invoice_to_accounting",
+    description=(
+        "Reusable working instruction for a batch of incoming supplier invoices: check balance, "
+        "parse each document, poll results, validate totals, then report with export links."
+    ),
+)
+def invoice_to_accounting(country: str = "de", documents: str = "") -> str:
+    """Step-by-step plan for processing a batch of invoices.
+
+    Args:
+        country: Two-letter parsing profile for the batch.
+        documents: Short description of the batch, e.g. "37 PDF scans from one supplier".
+    """
+    return (
+        "You are processing incoming supplier invoices for accounting.\n\n"
+        f"Batch: {documents or 'not described'}. Country profile: {country}.\n\n"
+        "1. Call get_balance first. Scans cost 0.07 EUR per page; XML and QR invoices are free. "
+        "If the balance is too low, show topup_link instead of starting work that fails halfway.\n"
+        "2. Call parse_invoice once per document. Never retry a timed-out call blindly: it creates a "
+        "new job and a new charge; poll get_result with the existing job id.\n"
+        "3. Poll get_result with a pause between calls until status is done or failed.\n"
+        "4. Validate: document total vs sum of lines, and VAT rate against stated VAT. Flag mismatches.\n"
+        "5. Report per document: supplier, number, date, net, VAT, gross, currency, export link. "
+        "Then one summary line with the batch total.\n\n"
+        "Never invent values. This server only reads invoices; it does not issue invoices, take "
+        "payments, or post entries into 1C or DATEV."
+    )
+
+
 def main() -> None:
     mcp.run(transport="stdio")
 
