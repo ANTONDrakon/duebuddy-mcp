@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "duebuddy-mcp"
-version = "1.1.0"
+version = "1.1.1"
 description = "MCP server that reads incoming supplier invoices (PDF, photo, XML e-invoices) and returns structured data plus a file for 1C, DATEV or CSV"
 readme = "README.md"
 requires-python = ">=3.10"
