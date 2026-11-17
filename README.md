@@ -1,5 +1,7 @@
 # duebuddy-mcp
 
+mcp-name: work.duebuddy/invoices
+
 MCP server that reads incoming supplier invoices and returns structured data plus a file ready
 for accounting. One endpoint for PDF, photos, scans, QR bills and electronic invoices.
 
