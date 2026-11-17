@@ -301,8 +301,31 @@ def invoice_to_accounting(country: str = "de", documents: str = "") -> str:
 
 
 def main() -> None:
+    """Запуск сервера. По умолчанию — stdio; --help и --version отвечают в консоли."""
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        prog="duebuddy-mcp",
+        description=(
+            "MCP server that reads incoming supplier invoices (PDF, photo, XML e-invoices) "
+            "and returns structured data plus a file for 1C, DATEV or CSV. "
+            "Transport is stdio: run it from an MCP client, not from a terminal."
+        ),
+    )
+    parser.add_argument("--version", action="store_true", help="print version and exit")
+    parser.add_argument("--list-tools", action="store_true", help="print tool names and exit")
+    args = parser.parse_args()
+
+    if args.version:
+        from duebuddy_mcp import __version__
+
+        print(f"duebuddy-mcp {__version__}")
+        return
+
+    if args.list_tools:
+        for name in ("parse_invoice", "get_result", "get_balance", "topup_link"):
+            print(name)
+        print("prompt: invoice_to_accounting")
+        return
+
     mcp.run(transport="stdio")
-
-
-if __name__ == "__main__":
-    main()
